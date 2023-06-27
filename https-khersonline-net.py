@@ -30,7 +30,7 @@ def get_page_content(link):
     title_element = soup.find("div", class_="post_title")
     body_element = soup.find("div", class_="post_content")
     date_element = soup.find("time", class_="post_info_item")
-    article_img_element = soup.find("div", class_ = "post_content")
+    img_element = soup.find("div", class_ = "post_content")
         
     if title_element:
         page_info["title"] = title_element.text.strip()
@@ -42,8 +42,8 @@ def get_page_content(link):
         if len(date_parts) >= 2:
             page_info["date"] = date_parts[0]
             page_info["time"] = date_parts[1]
-    if article_img_element:
-        img_tag = article_img_element.find("img")
+    if img_element:
+        img_tag = img_element.find("img")
         if img_tag:
             page_info["img"] = img_tag["src"]
 
