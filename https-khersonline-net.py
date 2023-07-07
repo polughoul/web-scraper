@@ -9,7 +9,7 @@ def get_links():
     r = requests.get(seed)
     soup = BeautifulSoup(r.content, "html.parser")
     links = []
-    news_elements = soup.find_all("a", class_="featured")
+    news_elements = soup.find_all("a", class_="newsfeed_post")
     for element in news_elements:
         link = element["href"]
         links.append(link)
